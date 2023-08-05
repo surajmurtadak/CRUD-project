@@ -1,8 +1,11 @@
 import React, { useState } from "react";
 import axios from "axios";
+import { useContext } from "react";
+import { Data } from "../contextAPI/DataContext";
 
 export default function AddProduct() {
 
+  let contextData = useContext(Data);
   const [product, setProduct] = useState({
     productName:"",description:"",price:0
   });
@@ -23,8 +26,8 @@ export default function AddProduct() {
       
         axios.post("http://localhost:8000/post",product)
         .then(response=>{
-            console.log(response)
-            window.alert("Uploaded Successfully");
+          contextData.fetchData();
+           alert("Uploaded Successfully");
         });
 
      }

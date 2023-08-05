@@ -5,7 +5,7 @@ export const DataProvider =({children})=>{
   const [data, setData] = useState([]);
   let [cart,setCart] = useState([]);
   
-  useEffect(() => {
+  let fetchData = () => {
     axios.get("http://localhost:8000/")
       .then(response => {
         setData(response.data); // Update the state with the fetched data
@@ -13,9 +13,11 @@ export const DataProvider =({children})=>{
       .catch(error => {
         console.error('Error fetching data:', error);
       });
-  }, []);
+  }
+
+  useEffect(fetchData, []);
   
   return(
-    <Data.Provider value={{cart,setCart,data}}>{children}</Data.Provider>
+    <Data.Provider value={{cart,setCart,data, fetchData}}>{children}</Data.Provider>
   );
 }
