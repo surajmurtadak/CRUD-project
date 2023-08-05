@@ -1,14 +1,26 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import axios from "axios";
 import { useContext } from "react";
+import { useParams } from "react-router-dom";
 import { Data } from "../contextAPI/DataContext";
 
-export default function AddProduct() {
+export default function UpdateProd() {
 
   let contextData = useContext(Data);
-  const [product, setProduct] = useState({
-    productName:"",description:"",imgUrl:"",price:0
-  });
+  let {prodName} = useParams();
+  let prevData={};
+  const [product, setProduct] = useState({});
+
+  useEffect(()=>{
+    axios.get("http://localhost:8000/product/"+prodName)
+      .then(response => {
+        setProduct(response.data) 
+        console.log("prevData::",prevData);
+      })
+      .catch(error => {
+        console.error('Error fetching data:', error);
+      });
+  },[]);
 
   let name,value;
 
@@ -24,7 +36,7 @@ export default function AddProduct() {
     console.log(product);
     // const data = {"productName":productName,"description":description,"price":price};
       
-        axios.post("http://localhost:8000/post",product)
+        axios.put("http://localhost:8000/product/"+prodName,product)
         .then(response=>{
           contextData.fetchData();
            alert("Uploaded Successfully");
@@ -34,6 +46,7 @@ export default function AddProduct() {
 
   return (
     <div className="d-flex flex-column">
+      {console.log("data :::",product)}
       <h3 className="m-3 text-center">Add Product in product list</h3>
       <div className="new-form">
         <form onSubmit={onSubmits} >

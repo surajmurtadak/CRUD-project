@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { Data } from "../contextAPI/DataContext";
 import axios from "axios";
+import { Link } from "react-router-dom";
 export default function Product() {
 
   let contextData = useContext(Data);
@@ -40,7 +41,7 @@ export default function Product() {
                 {/* buttons */}
 
                 <button type="button" onClick={()=>addToCart(product.productName)} className="btn btn-outline-success btn-sm">Add to Cart</button>
-                <button type="button" className="btn btn-outline-primary btn-sm"> <img className="action-icons" src="https://img.icons8.com/ios/50/edit--v1.png" alt="edit--v1"/> </button>
+                <Link to={`/update/${product.productName}`} style={{textDecoration:'none'}} > <button type="button" className="btn btn-outline-primary btn-sm"> <img className="action-icons" src="https://img.icons8.com/ios/50/edit--v1.png" alt="edit--v1"/> </button></Link>
                 <button type="button" onClick={()=>delFromDb(product.productName)} className="btn btn-outline-danger btn-sm"><img className="action-icons" src="https://img.icons8.com/wired/50/filled-trash.png" alt="filled-trash"/> </button>
 
               </div>

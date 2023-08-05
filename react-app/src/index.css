@@ -86,3 +86,7 @@ form{
   width: 100%;
   max-width: 800px;
 }
+
+.form-control{
+  padding: 0;
+}
