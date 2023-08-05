@@ -3,8 +3,6 @@ import { Data } from "../contextAPI/DataContext";
 export default function Cart() {
   let { cart, setCart } = useContext(Data);
   console.log(cart);
-  let imgPath =
-    "https://idestiny.in/wp-content/uploads/2022/09/iPhone_14_Pro_Deep_Purple_PDP_Image_Position-1a_Avail__en-IN.jpg";
 
     let delProduct=(delProd)=>{
       let newData = cart.filter((prod)=>prod.productName!==delProd);
@@ -12,14 +10,14 @@ export default function Cart() {
     }
   return (
     <div className="d-flex flex-column">
-      Cart
+      <h3 className="m-3 text-center">Your Cart</h3>
       {console.log(cart)}
       {cart.map((cartItem) => {
         return (
           
           <div className="cart-item" key={cartItem.productName}>
             <div className="left-block">
-              <img src={imgPath} alt="iphone" />
+              <img src={cartItem.imgUrl} alt="iphone" />
             </div>
             <div className="right-block">
               <h1> {cartItem.productName} </h1>

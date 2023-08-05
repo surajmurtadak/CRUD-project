@@ -1,3 +1,4 @@
+import AddProduct from "./components/AddProduct";
 import Cart from "./components/Cart";
 import Navbar from "./components/Navbar";
 import Product from "./components/Product";
@@ -11,6 +12,7 @@ function App() {
           <Routes>
             <Route path= "/" element={<Product/>} />
             <Route path="/cart" element={<Cart/>} />
+            <Route path="/addproduct" element={<AddProduct/>} />
           </Routes>
         </div>  
     </>

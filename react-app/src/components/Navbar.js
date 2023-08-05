@@ -26,9 +26,9 @@ export default function Navbar(){
           </button>
           <div className="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
             <div className="navbar-nav d-flex align-content-end">
-                <a className="nav-link" href="/">
+                <Link className="nav-link" to="/addproduct">
                   Add product
-                </a>
+                </Link>
                 <Link className="nav-link" to="/cart">
                   <img
                     width="32"
