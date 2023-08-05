@@ -26,10 +26,10 @@ export default function Navbar(){
           </button>
           <div className="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
             <div className="navbar-nav d-flex align-content-end">
-                <Link className="nav-link" to="/addproduct">
+                <Link className="nav-link align-self-center" to="/addproduct">
                   Add product
                 </Link>
-                <Link className="nav-link" to="/cart">
+                <Link className="nav-link align-self-center" to="/cart">
                   <img
                     width="32"
                     height="32"

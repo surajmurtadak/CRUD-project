@@ -30,22 +30,19 @@ export default function Product() {
         return (
           <div className="cart-item" key={product.productName}>
             <div className="left-block">
-              <img src={product.imgUrl} alt="iphone" />
+              <img src={product.imgUrl} alt="product img" />
             </div>
             <div className="right-block">
-              <h1> {product.productName} </h1>
-              <h5>Rs.{product.price} </h5>
-              <p> {product.description} </p>
+              <h1 className="fs-1"> {product.productName.length>25 ? product.productName.substring(0,25)+"..." : product.productName} </h1>
+              <h5 className="fs-5">Rs.{product.price} </h5>
+              <p className="fs-6"> {product.description.length>30 ? product.description.substring(0,30)+"..." : product.description } </p>
               <div className="cart-item-action">
                 {/* buttons */}
-                <button type="button" onClick={()=>addToCart(product.productName)} className="btn btn-outline-success">Add to Cart</button>
-                {/* <img
-                  className="action-icons"
-                  src="https://img.icons8.com/ios/50/000000/minus.png"
-                  alt="minus"
-                /> */}
-                <button type="button" onClick={()=>delFromDb(product.productName)} className="btn btn-outline-danger"><img className="action-icons" src="https://img.icons8.com/wired/50/filled-trash.png" alt="filled-trash"/>
-</button>
+
+                <button type="button" onClick={()=>addToCart(product.productName)} className="btn btn-outline-success btn-sm">Add to Cart</button>
+                <button type="button" className="btn btn-outline-primary btn-sm"> <img className="action-icons" src="https://img.icons8.com/ios/50/edit--v1.png" alt="edit--v1"/> </button>
+                <button type="button" onClick={()=>delFromDb(product.productName)} className="btn btn-outline-danger btn-sm"><img className="action-icons" src="https://img.icons8.com/wired/50/filled-trash.png" alt="filled-trash"/> </button>
+
               </div>
             </div>
           </div>

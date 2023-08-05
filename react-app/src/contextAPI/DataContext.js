@@ -8,7 +8,7 @@ export const DataProvider =({children})=>{
   let fetchData = () => {
     axios.get("http://localhost:8000/")
       .then(response => {
-        setData(response.data); // Update the state with the fetched data
+        setData(response.data); 
       })
       .catch(error => {
         console.error('Error fetching data:', error);

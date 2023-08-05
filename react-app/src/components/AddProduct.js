@@ -33,7 +33,7 @@ export default function AddProduct() {
      }
 
   return (
-    <>
+    <div className="d-flex flex-column">
       <h3 className="m-3 text-center">Add Product in product list</h3>
       <div className="new-form">
         <form onSubmit={onSubmits} >
@@ -99,6 +99,6 @@ export default function AddProduct() {
           </button>
         </form>
       </div>
-    </>
+    </div>
   );
 }

@@ -20,20 +20,12 @@ export default function Cart() {
               <img src={cartItem.imgUrl} alt="iphone" />
             </div>
             <div className="right-block">
-              <h1> {cartItem.productName} </h1>
-              <h5>Rs.{cartItem.price} </h5>
-              <p> {cartItem.description} </p>
-              <div className="cart-item-action">
-                {/* buttons */}
-                <button type="button" className="btn btn-outline-success">
-                <img className="action-icons" src="https://img.icons8.com/ios/50/edit--v1.png" alt="edit--v1"/>
-                </button>
-                {/* <img
-                  className="action-icons"
-                  src="https://img.icons8.com/ios/50/000000/minus.png"
-                  alt="minus"
-                /> */}
-                <button type="button" onClick={()=>delProduct(cartItem.productName)} className="btn btn-outline-danger">
+              <h1 className="fs-1"> {cartItem.productName} </h1>
+              <h5 className="fs-5">Rs.{cartItem.price} </h5>
+              <p className="fs-6"> {cartItem.description} </p>
+              <div className="cart-item-action d-flex">
+                
+                <button type="button" onClick={()=>delProduct(cartItem.productName)} className="btn btn-outline-danger btn-sm">
                   <img
                     className="action-icons"
                     src="https://img.icons8.com/wired/50/filled-trash.png"

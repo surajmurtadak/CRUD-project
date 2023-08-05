@@ -8,7 +8,7 @@ function App() {
   return (
     <>
       <Navbar/>
-        <div className="container">
+        <div className="container d-flex justify-content-center">
           <Routes>
             <Route path= "/" element={<Product/>} />
             <Route path="/cart" element={<Cart/>} />
