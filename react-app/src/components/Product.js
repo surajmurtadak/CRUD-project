@@ -27,6 +27,7 @@ export default function Product() {
   }
   return (
     <div className="d-flex flex-column">
+      <h3 className="m-3 text-center">All Products List</h3>
       {prodData.map((product) => {
         return (
           <div className="cart-item" key={product.productName}>
