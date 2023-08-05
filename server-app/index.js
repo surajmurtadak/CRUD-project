@@ -6,10 +6,11 @@ const cors = require('cors');
 const { response } = require('express');
 const app = express();
 
-var corsOptions = {
-  origin: "http://localhost:8081"
-};
-app.use(cors(corsOptions));
+app.use(cors());
+app.use((req, res, next) => {
+    res.header('Access-Control-Allow-Origin', '*');
+    next();
+  });
 
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(bodyParser.json());
@@ -30,6 +31,9 @@ const productSchema = new mongoose.Schema({
   description : { type: String,
                   required: true
                 },
+  imgUrl : { type: String,
+            required: true
+          },
   price : { type: Number,
             required: true
           },
@@ -51,6 +55,7 @@ app.post("/post",async(req,res)=>{
   const product1 = new productCol({
     productName : req.body.productName,
     description : req.body.description,
+    imgUrl : req.body.imgUrl,
     price : req.body.price
   });
 
